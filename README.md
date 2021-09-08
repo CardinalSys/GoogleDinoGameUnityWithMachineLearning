@@ -1,2 +1,4 @@
 # DinoGameWithMLAgents
-Google's dinosaur game but with machine learning in unity 
+Google's dinosaur game but maked in unity 
+-Normal Game
+-IA
