@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9036877162090908953}
   - component: {fileID: 9036877162090908952}
   - component: {fileID: 9036877162090908951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cactus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9036877162090908956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: -3.381, z: 0}
+  m_LocalPosition: {x: 17, y: -20.62, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.030193925}
+  m_Offset: {x: 0, y: 0.078540444}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.6096122}
+  m_Size: {x: 0.18, y: 0.5129192}
   m_EdgeRadius: 0
 --- !u!114 &9036877162090908951
 MonoBehaviour:
@@ -152,4 +152,5 @@ MonoBehaviour:
   - {fileID: -3833910922912046773, guid: f1fbd52702a029c4291eee891af6f6c5, type: 3}
   - {fileID: -5143854499363391081, guid: f1fbd52702a029c4291eee891af6f6c5, type: 3}
   - {fileID: 1378663183574432438, guid: f1fbd52702a029c4291eee891af6f6c5, type: 3}
+  speed: 8
   gm: {fileID: 0}

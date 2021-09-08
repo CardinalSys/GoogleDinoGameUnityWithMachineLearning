@@ -10,12 +10,12 @@ public class Cactus : MonoBehaviour
     public Sprite[] sprites = new Sprite[6];
 
     Rigidbody2D rb;
-    float speed = 8;
+    public float speed = 8;
     public GroundManager gm;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gm = GameObject.FindGameObjectWithTag("Ground").GetComponent<GroundManager>();
+        //gm = GameObject.FindGameObjectWithTag("Ground").GetComponent<GroundManager>();
 
         jumpBase = GameObject.FindGameObjectWithTag("Jump").GetComponent<Collider2D>();
         float x = Random.Range(1.8f, 2.3f);

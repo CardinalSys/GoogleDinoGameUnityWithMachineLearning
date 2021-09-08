@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text CurrentScore;
-    public Text MaxScore;
+    public Text CurrentScore, MaxScore, NpcCurrentScore, NcpMaxScore;
 
-    public bool started = true;
-    public float currentScore;
-    public float maxScore;
 
-    string zeros = "0000";
-    int zerosRemoved = 0;
+    public bool started = true, npcStarted = true;
+    public float currentScore, maxScore, npcCurrentScore, npcMaxScore;
+
+
+    string zeros = "0000", npcZeros = "0000";
+    int zerosRemoved = 0, npcZerosRemoved = 0;
 
     private void Update()
     {
@@ -43,5 +43,31 @@ public class Score : MonoBehaviour
             CurrentScore.text = zeros.ToString() + (int)currentScore;
         }
         MaxScore.text = "Hi " + (int)maxScore;   
+        if(npcStarted)
+        {
+            npcCurrentScore += Time.deltaTime * 8f;
+            if (npcCurrentScore > 9 && npcZerosRemoved == 0)
+            {
+                npcZerosRemoved++;
+                npcZeros = npcZeros.Remove(zeros.Length - 1, 1);
+            }
+            else if (npcCurrentScore > 99 && npcZerosRemoved == 1)
+            {
+                npcZerosRemoved++;
+                npcZeros = npcZeros.Remove(zeros.Length - 1, 1);
+            }
+            else if (npcCurrentScore > 999 && npcZerosRemoved == 2)
+            {
+                npcZerosRemoved++;
+                npcZeros = npcZeros.Remove(zeros.Length - 1, 1);
+            }
+            else if (npcCurrentScore > 9999 && npcZerosRemoved == 3)
+            {
+                npcZerosRemoved++;
+                npcZeros = npcZeros.Remove(zeros.Length - 1, 1);
+            }
+            NpcCurrentScore.text = npcZeros.ToString() + (int)npcCurrentScore;
+        }
+        NcpMaxScore.text = "Hi " + (int)npcMaxScore;
     }
 }
