@@ -1,4 +1,2 @@
 # DinoGameWithMLAgents
-Google's dinosaur game but maked in unity 
--Normal Game
--IA
+Google's dinosaur game but maked in unity
