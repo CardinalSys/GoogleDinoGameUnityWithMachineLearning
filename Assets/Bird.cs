@@ -9,21 +9,38 @@ public class Bird : MonoBehaviour
     public GroundManager gm;
     private void Start()
     {
-        int num = Random.Range(1, 3);
-        if(num == 1)
+        RandomPos();
+        rb = GetComponent<Rigidbody2D>();
+        if(name == "PlayerBird (Clone)")
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+            gm = GameObject.Find("Ground 1").GetComponent<GroundManager>();
         }
-        else
+        else if(name == "NpcBird")
+        {
+            gm = GameObject.Find("NPCGround 1").GetComponent<GroundManager>();
+        }
+        else if(name == "B1" || name == "B2")
+        {
+            gm = GameObject.Find("MLGround 1").GetComponent<GroundManager>();
+        }
+    }
+    public void Update()
+    {
+        speed = gm.speed;
+        rb.velocity = (Vector2.left * speed);
+    }
+    public void RandomPos()
+    {
+        int num = Random.Range(0, 2);
+        if(num == 0)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + 1.76f, -1);
         }
-        rb = GetComponent<Rigidbody2D>();
-        gm = GameObject.FindGameObjectWithTag("Ground").GetComponent<GroundManager>();
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        }
+
     }
-    private void Update()
-    {
-        speed = gm.speed + 3;
-        rb.velocity = (Vector2.left * speed);
-    }
+
 }

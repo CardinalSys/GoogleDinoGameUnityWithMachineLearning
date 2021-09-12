@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text CurrentScore, MaxScore, NpcCurrentScore, NcpMaxScore;
+    public Text CurrentScore, MaxScore, NpcCurrentScore, NcpMaxScore, MlCurrentScore, MlMaxScore;
 
 
-    public bool started = true, npcStarted = true;
-    public float currentScore, maxScore, npcCurrentScore, npcMaxScore;
+    public bool started = true, npcStarted = true, mlStarted = true;
+    public float currentScore, maxScore, npcCurrentScore, npcMaxScore, mlCurrentScore, mlMaxScore;
+
+    public float BestTime = 0;
 
 
-    string zeros = "0000", npcZeros = "0000";
-    int zerosRemoved = 0, npcZerosRemoved = 0;
-
+    string zeros = "000000", npcZeros = "000000", mlZeros = "000000";
+    int zerosRemoved = 0, npcZerosRemoved = 0, mlZerosRemoved = 0;
+    private void Start()
+    {
+        BestTime = PlayerPrefs.GetFloat("Best");
+        MlMaxScore.text = BestTime.ToString();
+    }
     private void Update()
     {
+        //Player
         if(started)
         {
             currentScore += Time.deltaTime * 8f;
@@ -43,6 +50,7 @@ public class Score : MonoBehaviour
             CurrentScore.text = zeros.ToString() + (int)currentScore;
         }
         MaxScore.text = "Hi " + (int)maxScore;   
+        //Npc
         if(npcStarted)
         {
             npcCurrentScore += Time.deltaTime * 8f;
@@ -69,5 +77,34 @@ public class Score : MonoBehaviour
             NpcCurrentScore.text = npcZeros.ToString() + (int)npcCurrentScore;
         }
         NcpMaxScore.text = "Hi " + (int)npcMaxScore;
+
+        //MlAgent
+
+        if (mlStarted)
+        {
+            mlCurrentScore += Time.deltaTime * 8f;
+            if (mlCurrentScore > 9 && mlZerosRemoved == 0)
+            {
+                mlZerosRemoved++;
+                mlZeros = mlZeros.Remove(zeros.Length - 1, 1);
+            }
+            else if (mlCurrentScore > 99 && mlZerosRemoved == 1)
+            {
+                mlZerosRemoved++;
+                mlZeros = mlZeros.Remove(zeros.Length - 1, 1);
+            }
+            else if (mlCurrentScore > 999 && mlZerosRemoved == 2)
+            {
+                mlZerosRemoved++;
+                mlZeros = mlZeros.Remove(zeros.Length - 1, 1);
+            }
+            else if (mlCurrentScore > 9999 && mlZerosRemoved == 3)
+            {
+                mlZerosRemoved++;
+                mlZeros = mlZeros.Remove(zeros.Length - 1, 1);
+            }
+            MlCurrentScore.text = mlZeros.ToString() + (int)mlCurrentScore;
+        }
+        MlMaxScore.text = "Hi " + (int)mlMaxScore;
     }
 }

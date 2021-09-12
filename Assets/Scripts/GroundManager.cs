@@ -35,39 +35,39 @@ public class GroundManager : MonoBehaviour
     {
         if(s.currentScore >= 100 && s.currentScore < 200)
         {
-            speed = 9f;
+            speed = 10f;
         }
         else if (s.currentScore >= 200 && s.currentScore < 300)
         {
-            speed = 10f;
+            speed = 11f;
         }
         else if (s.currentScore >= 300 && s.currentScore < 400)
         {
-            speed = 11f;
+            speed = 12f;
         }
         else if (s.currentScore >= 400 && s.currentScore < 500)
         {
-            speed = 12f;
+            speed = 13f;
         }
         else if (s.currentScore >= 500 && s.currentScore < 600)
         {
-            speed = 13f;
+            speed = 14f;
         }
         else if (s.currentScore >= 600 && s.currentScore < 800)
         {
-            speed = 14f;
+            speed = 15f;
         }
         else if (s.currentScore >= 800 && s.currentScore < 1000)
         {
-            speed = 15f;
+            speed = 16f;
         }
         else if (s.currentScore >= 1000 && s.currentScore < 1300)
         {
-            speed = 16f;
+            speed = 17f;
         }
         else if (s.currentScore >= 1300 && s.currentScore < 1600)
         {
-            speed = 17f;
+            speed = 18f;
         }
     }
 }

@@ -55,12 +55,10 @@ public class DinoNPC : MonoBehaviour
                         if (bird != null)
                         {
                             float birdDistance = Vector2.Distance(transform.position, bird.transform.position);
-                            Debug.Log(birdDistance);
-                            if(birdDistance < 4 && bird.transform.position.y == -0.5f && jumpTO == 0.5 && isGrounded && distance > 3 && distance < 3.5)
+                            if(birdDistance < 4 && bird.transform.position.y == -0.5f && jumpTO == 0.5 && isGrounded && distance > 2 && distance < 2.5)
                             {
                                 jumpTO = 0;
                                 rb.AddForce(Vector2.up * speed);
-                                Debug.Log("Jumping");
                                 isGrounded = false;
                                 birdObs = false;
                                 break;
@@ -92,7 +90,6 @@ public class DinoNPC : MonoBehaviour
                         }
                         jumpTO = 0;
                         rb.AddForce(Vector2.up * speed);
-                        Debug.Log("Jumping");
                         isGrounded = false;
                         jumped = true;
                         birdObs = false;
@@ -116,7 +113,6 @@ public class DinoNPC : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("He muricionado");
             sm.NPCGameOver();
             anim.SetBool("Dead", true);
         }

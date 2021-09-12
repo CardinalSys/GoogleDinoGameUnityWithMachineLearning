@@ -33,12 +33,12 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isGrounded = false;
             rb.AddForce(Vector2.up * speed);
         }
-        if(isGrounded)
+        if (isGrounded)
         {
             anim.SetBool("Jumping", false);
         }
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Crouch()
     {
-        if(Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             NormalColl.enabled = false;
             CrouchColl.enabled = true;
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             //Restart Game
             anim.SetBool("Dead", true);
